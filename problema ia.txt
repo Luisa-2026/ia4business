@@ -24,6 +24,15 @@ Com isso, a equipe teria mais autonomia no dia a dia, e o proprietário precisar
 
 A meta seria reduzir entre 30% e 40% o tempo que o proprietário dedica à conferência e validação de tarefas operacionais no primeiro ano de uso da solução, faixa alinhada ao que costuma ser reportado em processos administrativos automatizados. Isso seria medido pelo número de horas por semana que ele gasta revisando as atividades da equipe, comparando o cenário antes e depois da implementação da solução — um levantamento inicial desse número de horas ainda precisa ser feito para servir de linha de base.
 
+## Cargos impactados
+
+A solução afetaria diretamente quatro papéis dentro da empresa:
+
+1. **Proprietário/Gestor** — usuário indireto principal; recebe menos interrupções e mais tempo para decisões estratégicas, já que o assistente absorve dúvidas e validações rotineiras.
+2. **Responsável Financeiro** — usuário direto; usa os alertas automáticos para evitar pagamentos duplicados e prazos de boletos vencidos.
+3. **Responsável por Atendimento ao Cliente** — usuário direto; consulta o assistente para tirar dúvidas sobre procedimentos sem precisar interromper o proprietário.
+4. **Responsável por Contratos/Cartório** — usuário direto; usa a checagem automática de cláusulas, inconsistências e status de processos cartoriais.
+
 ## Como eu tenho acesso
 
 Tenho acesso direto, pois é uma empresa da minha família e estou fazendo estágio lá. Acompanho de perto a rotina administrativa e operacional dos três colaboradores (financeiro, atendimento e contratos/cartório), além de conversar frequentemente com o proprietário sobre os problemas do dia a dia.
