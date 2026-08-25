@@ -24,6 +24,14 @@ Com isso, a equipe teria mais autonomia no dia a dia, e o proprietário precisar
 
 A meta seria reduzir entre 30% e 40% o tempo que o proprietário dedica à conferência e validação de tarefas operacionais no primeiro ano de uso da solução, faixa alinhada ao que costuma ser reportado em processos administrativos automatizados. Isso seria medido pelo número de horas por semana que ele gasta revisando as atividades da equipe, comparando o cenário antes e depois da implementação da solução — um levantamento inicial desse número de horas ainda precisa ser feito para servir de linha de base.
 
+## Primeiro experimento
+
+Antes de construir a solução completa, o primeiro teste vai se limitar à frente de validação de pagamentos, por ser onde o erro mais recorrente (duplicidade) já acontece hoje. Por 4 semanas, o funcionário responsável pelo financeiro vai usar uma planilha simples (Google Sheets) com uma lista central de boletos pagos: antes de pagar qualquer boleto, ele confere ali se aquele boleto — mesmo valor, beneficiário e mês — já não foi pago antes.
+
+O que será medido nesse período: (1) quantos pagamentos duplicados são evitados, comparado com a frequência mensal atual de incidentes, e (2) quanto tempo o proprietário ainda precisa gastar conferindo manualmente essa mesma frente, mesmo com a planilha em uso.
+
+Se o número de duplicidades cair e a necessidade de conferência do proprietário nessa frente específica diminuir, isso valida que a mesma lógica — checagem automática antes da execução — pode ser estendida com IA para as outras duas frentes (prazos de cartório e checagem de contratos).
+
 ## Cargos impactados
 
 A solução afetaria diretamente quatro papéis dentro da empresa:
