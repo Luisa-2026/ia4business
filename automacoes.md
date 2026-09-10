@@ -7,7 +7,7 @@ Registro do que foi ligado, por que, e a auditoria manter/consertar/matar. Atual
 | Conector | Status | Justificativa |
 |---|---|---|
 | Notion | **MANTER** | Usado de verdade: relatório mensal FakeERP, relatório diário, e agora a página [Alertas — IA4business](https://app.notion.com/p/3d7fb134714b81ca9eeaef83df2a9cce), destino da Regra 1 de `regras.md`. |
-| Gmail | **CONSERTAR** | Ligado desde a Aula 9, mas nenhum fluxo foi construído em cima ainda — não existe página "Caixa de entrada" no Notion. Ideia boa (reduzir dúvida de atendimento), execução não aconteceu. Ou vira fluxo real na próxima aula, ou é candidato a desligar. |
+| Gmail | **CONSERTAR** | Ganhou primeiro uso real na Regra 6 de `regras.md` (busca por palavra-chave, correlacionando com pedido cancelado do FakeERP), mas só como segunda fonte de uma regra que nunca dispara — a caixa é pessoal e de treino, sem pedido de cliente de verdade. Vira fluxo real quando a fonte 2 for o e-mail de atendimento da empresa, ligado ao Kommo. |
 
 ## Fluxos
 
@@ -23,7 +23,7 @@ Registro do que foi ligado, por que, e a auditoria manter/consertar/matar. Atual
 
 ## Regras ligadas
 
-Arquivo das regras: [regras.md](regras.md) (5 regras — venda cancelada, receita paga abaixo da meta, pagamento pendente há mais de 15 dias, desconto fora do padrão, concentração de faturamento em um pedido)
+Arquivo das regras: [regras.md](regras.md) (6 regras — venda cancelada, receita paga abaixo da meta, pagamento pendente há mais de 15 dias, desconto fora do padrão, concentração de faturamento em um pedido, pedido cancelado com reclamação por e-mail)
 
 Como roda: à mão no Claude Code, testado contra janeiro/2026 (dispara) e julho/2026 (calada). Ainda não agendada como rotina — depende primeiro do bloqueio de rede do FakeERP ser resolvido (ver rotina abaixo).
 
@@ -41,6 +41,8 @@ Como roda: à mão no Claude Code, testado contra janeiro/2026 (dispara) e julho
 | 10/09 | desconto-fora-padrao | FakeERP 01/2026 | não | maior desconto 9,12% (orderId 1004), abaixo dos 10% |
 | 10/09 | concentracao-faturamento | FakeERP 07/2026 | sim | orderId 1012, 93% do faturamento pago do mês (R$4.000,00 de R$4.300,00) |
 | 10/09 | concentracao-faturamento | FakeERP 02/2026 | não | maior concentração 71,4% (orderId 1007), abaixo dos 75%, entre 3 pedidos pagos |
+| 10/09 | cancelado-com-email | FakeERP 01/2026 + Gmail 18–23/01/2026 | não | 1 pedido CANCELLED (orderId 1003) na fonte 1; 0 e-mails com palavra-chave na fonte 2 |
+| 10/09 | cancelado-com-email | FakeERP 03/2026 + Gmail 28/03–02/04/2026 | não | 1 pedido CANCELLED (orderId 1010) na fonte 1; 0 e-mails com palavra-chave na fonte 2 |
 
 ## Auditoria desta semana
 
