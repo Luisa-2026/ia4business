@@ -6,7 +6,7 @@ Registro do que foi ligado, por que, e a auditoria manter/consertar/matar. Atual
 
 | Conector | Status | Justificativa |
 |---|---|---|
-| Notion | **MANTER** | Usado de verdade: relatório mensal FakeERP, relatório diário, rotina escreve nele sozinha. |
+| Notion | **MANTER** | Usado de verdade: relatório mensal FakeERP, relatório diário, e agora a página [Alertas — IA4business](https://app.notion.com/p/3d7fb134714b81ca9eeaef83df2a9cce), destino da Regra 1 de `regras.md`. |
 | Gmail | **CONSERTAR** | Ligado desde a Aula 9, mas nenhum fluxo foi construído em cima ainda — não existe página "Caixa de entrada" no Notion. Ideia boa (reduzir dúvida de atendimento), execução não aconteceu. Ou vira fluxo real na próxima aula, ou é candidato a desligar. |
 
 ## Fluxos
@@ -31,7 +31,7 @@ Como roda: à mão no Claude Code, testado contra janeiro/2026 (dispara) e julho
 
 | Data | Regra | Fonte | Disparou? | Número que decidiu |
 |---|---|---|---|---|
-| 10/09 | venda-cancelada | FakeERP 01/2026 | sim | 1 pedido CANCELLED (orderId 1003, R$225,00) |
+| 10/09 | venda-cancelada | FakeERP 01/2026 | sim | 1 pedido CANCELLED (orderId 1003, R$225,00) — escrito na página [Alertas — IA4business](https://app.notion.com/p/3d7fb134714b81ca9eeaef83df2a9cce) do Notion (degrau 1, ação saiu do repositório) |
 | 10/09 | venda-cancelada | FakeERP 07/2026 | não | 0 pedidos CANCELLED entre 2 pedidos olhados |
 | 10/09 | receita-abaixo-meta | FakeERP 01/2026 | sim | receita paga R$1.430,00 (< R$2.000,00) |
 | 10/09 | receita-abaixo-meta | FakeERP 07/2026 | não | receita paga R$4.300,00 (≥ R$2.000,00) |

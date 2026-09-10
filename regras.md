@@ -12,9 +12,11 @@ Em nenhuma regra a ação é executar algo sozinha: o máximo que a automação 
 | Gatilho | Tempo. Todo dia às 8h (ou à mão, toda segunda) |
 | Fonte | FakeERP, pedidos do mês corrente — `GET /report/{year}/{month}`, ver `fake-erp.md` |
 | Condição | Existe pelo menos 1 pedido com `status: "CANCELLED"` no mês consultado |
-| Ação | Escrever alerta com `orderId`, valor (`total`) e data de cada pedido cancelado |
-| Quem recebe | Eu (Luisa), no arquivo `alertas/`. Repasso ao meu pai só se a causa não for óbvia |
+| Ação | Criar uma seção nova na página "Alertas — IA4business" do Notion, com `orderId`, valor (`total`) e data de cada pedido cancelado |
+| Quem recebe | Eu (Luisa), na página ["Alertas — IA4business"](https://app.notion.com/p/3d7fb134714b81ca9eeaef83df2a9cce) do Notion. Repasso ao meu pai só se a causa não for óbvia |
 | Se não disparar | Gravar em `automacoes.md` a data, o mês consultado e quantos pedidos foram olhados |
+
+Degrau 1 da faixa rápida: a ação desta regra saiu do repositório. Antes escrevia em `alertas/`; agora cria a seção direto na página do Notion que eu já abro — a mesma lógica de gatilho/condição, só o destino mudou. Rodei de verdade contra janeiro/2026 e a seção "10/09/2026 — Regra 1" já está publicada na página.
 
 ## Regra 2 — Receita paga do mês abaixo da meta
 
