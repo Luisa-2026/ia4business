@@ -44,6 +44,18 @@ Como roda: à mão no Claude Code, testado contra janeiro/2026 (dispara) e julho
 | 10/09 | cancelado-com-email | FakeERP 01/2026 + Gmail 18–23/01/2026 | não | 1 pedido CANCELLED (orderId 1003) na fonte 1; 0 e-mails com palavra-chave na fonte 2 |
 | 10/09 | cancelado-com-email | FakeERP 03/2026 + Gmail 28/03–02/04/2026 | não | 1 pedido CANCELLED (orderId 1010) na fonte 1; 0 e-mails com palavra-chave na fonte 2 |
 
+## Painel
+
+`painel.html`, na raiz do repositório. Mostra os 3 números declarados em [dados/fonte.md](dados/fonte.md) — pedidos no mês, receita paga no mês, ticket médio pago — calculados a partir de [dados/amostra.csv](dados/amostra.csv) (janeiro/2026, FakeERP). Arquivo único, dados embutidos no HTML: abre com dois cliques, em qualquer computador, sem servidor e sem internet.
+
+**Como é atualizado hoje:** à mão. Sempre que `dados/amostra.csv` mudar (novo mês, dado real substituindo o de treino), rodar de novo o prompt do passo 3 da aula ("lê o fonte.md e o amostra.csv, gera o painel.html") para o painel se refazer a partir do dado novo — nunca editar o HTML célula por célula.
+
+**Ainda não é rotina.** Ligar isso a "todo dia às 8h" (faixa rápida da aula, degrau 2) depende do mesmo bloqueio da rotina do FakeERP logo acima — e hoje (14/09) a própria API do FakeERP caiu (502 em todos os endpoints, ver nota em `dados/fonte.md`), então mesmo rodando à mão não dava para reconfirmar o mês por completo agora.
+
+| Data | Fonte usada | Números gerados | Observação |
+|---|---|---|---|
+| 14/09 | dados/amostra.csv (FakeERP, jan/2026) | 4 pedidos · receita paga R$ 1.430,00 · ticket médio pago R$ 715,00 | API do FakeERP fora do ar hoje (502); 3 dos 4 pedidos vêm de execuções reais já documentadas acima, 1 pedido (PAID, R$ 480,00) foi deduzido dos agregados já confirmados, sem inventar `orderId`/data/valor bruto |
+
 ## Auditoria desta semana
 
 Primeira semana com automação de verdade — nada para **matar** ainda. Ponto de atenção real: o conector Gmail, ligado sem uso, e a rotina FakeERP, ligada mas bloqueada por rede. Sem isso resolvido, "todo dia às 8h" ainda não devolve tempo nenhum — é dívida, não ativo, até o bloqueio de rede ser corrigido.

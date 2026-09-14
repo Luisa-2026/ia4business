@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel — IA4business</title>
+<style>
+  :root {
+    --navy: #0f2a4a;
+    --navy-light: #1c3f66;
+    --gold: #d99e30;
+    --gray: #5a6472;
+    --bg: #f4f6f8;
+    --line: #dfe4e9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--navy);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  header { margin-bottom: 28px; }
+  header .tag {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  h1 { margin: 4px 0 6px; font-size: 26px; }
+  .periodo { color: var(--gray); font-size: 14px; }
+
+  .numeros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+  @media (max-width: 640px) {
+    .numeros { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .card .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+  .card .valor {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 6px 0 4px;
+  }
+  .card .regra {
+    font-size: 12.5px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  h2 {
+    font-size: 16px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 13.5px;
+    margin-top: 12px;
+  }
+  th, td {
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  th {
+    background: var(--navy);
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.paid td.status { color: #1a7a3c; font-weight: 600; }
+  tr.cancelled td.status { color: #b8332b; font-weight: 600; }
+  tr.pending td.status { color: #a2751a; font-weight: 600; }
+  td.vazio { color: var(--gray); font-style: italic; }
+
+  .nota {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--gray);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="tag">IA4business · Painel gerado</div>
+    <h1>Os 3 números do negócio</h1>
+    <div class="periodo" id="periodo"></div>
+  </header>
+
+  <section class="numeros" id="numeros"></section>
+
+  <section>
+    <h2>Pedidos que geraram os números acima</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>orderId</th>
+          <th>Data</th>
+          <th>Valor bruto</th>
+          <th>Desconto</th>
+          <th>Total</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-pedidos"></tbody>
+    </table>
+    <p class="nota">Campos em branco não foram confirmados diretamente na fonte (ver nota em <code>dados/fonte.md</code>) — não foram inventados.</p>
+  </section>
+
+  <footer id="rodape"></footer>
+
+</div>
+
+<script>
+  // Dados embutidos a partir de dados/amostra.csv (janeiro de 2026).
+  // Regra de cálculo de cada número vem de dados/fonte.md — não é recalculada aqui de outro jeito.
+  const FONTE_ARQUIVO = "dados/amostra.csv";
+  const FONTE_REGRAS = "dados/fonte.md";
+  const ULTIMA_ATUALIZACAO = "2026-09-14";
+  const PERIODO = "Janeiro de 2026";
+
+  const pedidos = [
+    { orderId: 1001, data: "2026-01-05", value: 1000.00, discount: 50.00, total: 950.00, status: "PAID" },
+    { orderId: 1002, data: null,          value: null,    discount: null,  total: 480.00, status: "PAID" },
+    { orderId: 1003, data: "2026-01-20", value: null,    discount: null,  total: 225.00, status: "CANCELLED" },
+    { orderId: 1004, data: "2026-01-28", value: null,    discount: null,  total: 1200.00, status: "PENDING" }
+  ];
+
+  function moeda(v) {
+    return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  }
+
+  // Número 1 — Volume: pedidos no mês (todos os status contam)
+  const pedidosNoMes = pedidos.length;
+
+  // Número 2 — Dinheiro: receita paga no mês (soma do total, só status PAID)
+  const pagos = pedidos.filter(p => p.status === "PAID");
+  const receitaPaga = pagos.reduce((soma, p) => soma + p.total, 0);
+
+  // Número 3 — Qualidade: ticket médio pago (receita paga / quantidade de pedidos pagos)
+  const ticketMedioPago = receitaPaga / pagos.length;
+
+  document.getElementById("periodo").textContent = "Período: " + PERIODO;
+
+  document.getElementById("numeros").innerHTML = `
+    <div class="card">
+      <div class="label">Volume · Pedidos no mês</div>
+      <div class="valor">${pedidosNoMes}</div>
+      <div class="regra">Contagem de todos os pedidos do mês, qualquer status.</div>
+    </div>
+    <div class="card">
+      <div class="label">Dinheiro · Receita paga no mês</div>
+      <div class="valor">${moeda(receitaPaga)}</div>
+      <div class="regra">Soma do total só dos pedidos com status PAID.</div>
+    </div>
+    <div class="card">
+      <div class="label">Qualidade · Ticket médio pago</div>
+      <div class="valor">${moeda(ticketMedioPago)}</div>
+      <div class="regra">Receita paga ÷ quantidade de pedidos PAID.</div>
+    </div>
+  `;
+
+  const linhas = pedidos.map(p => `
+    <tr class="${p.status.toLowerCase()}">
+      <td>${p.orderId}</td>
+      <td>${p.data ?? '<span class="vazio">não confirmado</span>'}</td>
+      <td class="num">${p.value != null ? moeda(p.value) : '<span class="vazio">—</span>'}</td>
+      <td class="num">${p.discount != null ? moeda(p.discount) : '<span class="vazio">—</span>'}</td>
+      <td class="num">${moeda(p.total)}</td>
+      <td class="status">${p.status}</td>
+    </tr>
+  `).join("");
+  document.getElementById("tabela-pedidos").innerHTML = linhas;
+
+  document.getElementById("rodape").innerHTML =
+    `Números vindos de <code>${FONTE_ARQUIVO}</code>, calculados pela regra escrita em <code>${FONTE_REGRAS}</code>. ` +
+    `Última atualização: ${ULTIMA_ATUALIZACAO}.`;
+</script>
+</body>
+</html>
