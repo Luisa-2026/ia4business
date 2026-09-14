@@ -42,15 +42,17 @@ Tipo de negócio usado como referência: "Loja ou e-commerce" (pedidos), por ser
 
 Se alguém contar "quanto vendemos" pelos 4 pedidos do mês (visão comercial, pedidos fechados), chega a um número puxado pelo `value` bruto de todos eles. Se alguém contar pelo dinheiro que efetivamente caiu na conta (visão financeira, só `PAID`), chega a R$ 1.430,00. Dos 4 pedidos, 1 está cancelado e 1 está pendente — nenhum dos dois lados está errado, cada um está respondendo uma pergunta diferente. A regra de cálculo escrita acima é o que evita a reunião discutir planilha em vez de decisão.
 
-## Nota sobre a amostra de hoje (14/09/2026): a API do FakeERP caiu
+## Nota sobre a amostra de hoje (14/09/2026): a API caiu e depois voltou
 
-Antes de montar `dados/amostra.csv`, tentei reconfirmar os 4 pedidos de janeiro/2026 chamando a API de novo (login + `/report/2026/1`). A resposta foi `502` (erro de origem, via Cloudflare) em **todos** os endpoints, incluindo `/v3/api-docs`, que não exige login — ou seja, o servidor do FakeERP está fora do ar agora, não é um bloqueio de rede do meu lado. Tentei 8 vezes ao longo de ~2 minutos, sempre `502`.
+Na primeira tentativa de montar `dados/amostra.csv`, a API do FakeERP respondeu `502` (erro de origem, via Cloudflare) em **todos** os endpoints, incluindo `/v3/api-docs`, que não exige login — 8 tentativas ao longo de ~2 minutos, sempre fora do ar. Para não inventar dado, a amostra ficou com 3 dos 4 pedidos confirmados por sessões anteriores (`fake-erp.md`, `regras.md`, `alertas/2026-09-10.md`) e o 4º só com o `total` (480,00), deduzido matematicamente de dois agregados já confirmados — `orderId`, data e a quebra `value`/`discount` desse pedido ficaram em branco, não inventados.
 
-Para não inventar dado, a amostra usa apenas o que já foi confirmado por chamadas reais em sessões anteriores (documentadas em `fake-erp.md` e `automacoes.md`):
+Cerca de 20 minutos depois, a API voltou (`HTTP 200`) e `GET /report/2026/1` foi chamado de novo, de verdade. **A dedução se confirmou exatamente**: o pedido é o **1002**, `PAID`, `total` 480,00 — batendo com o valor que já havia sido calculado por diferença. A amostra abaixo já está com o dado direto da API, não mais com a dedução:
 
-- **1001** — confirmado por completo (exemplo real documentado em `fake-erp.md`): 05/01/2026, `value` 1000,00, `discount` 50,00, `total` 950,00, `PAID`.
-- **1003** — `orderId`, data (20/01/2026) e `total` (225,00, `CANCELLED`) confirmados em `regras.md`/`alertas/2026-09-10.md`. `value` e `discount` individuais não foram documentados nas sessões anteriores e não puderam ser reconfirmados hoje.
-- **1004** — `orderId`, data (28/01/2026) e `total` (1.200,00, `PENDING`) confirmados nos mesmos arquivos. `value`/`discount` idem: não confirmados.
-- **Um 4º pedido, PAID, total 480,00** — não está documentado individualmente em nenhuma sessão anterior, mas seu valor é uma consequência matemática necessária de dois números já confirmados de forma independente: `totalAmount` de janeiro é 2.855,00 (1001+1003+1004 = 2.375,00, sobra 480,00) **e** a receita paga de janeiro é 1.430,00 (950,00 do pedido 1001, sobra 480,00). As duas contas batem no mesmo valor, o que dá confiança de que ele existe e é `PAID`. O `orderId` (assumi 1002, por sequência) e a data exata não são confirmados — por isso ficam em branco no CSV, em vez de inventados.
+| orderId | orderDateTime | value | discount | total | status |
+|---|---|---|---|---|---|
+| 1001 | 2026-01-05T09:30:00 | 1.000,00 | 50,00 | 950,00 | PAID |
+| 1002 | 2026-01-12T14:10:00 | 480,00 | 0,00 | 480,00 | PAID |
+| 1003 | 2026-01-20T18:45:00 | 250,00 | 25,00 | 225,00 | CANCELLED |
+| 1004 | 2026-01-28T11:00:00 | 1.320,50 | 120,50 | 1.200,00 | PENDING |
 
-Quando a API voltar, o próximo passo é rodar `GET /report/2026/1` de novo e confirmar o pedido 1002 de verdade (id, data, `value`, `discount`), substituindo a dedução por dado direto.
+Os 3 números não mudam (a dedução já estava certa), mas agora todo campo de `dados/amostra.csv` vem de uma chamada real, sem nenhuma lacuna.

@@ -50,11 +50,11 @@ Como roda: à mão no Claude Code, testado contra janeiro/2026 (dispara) e julho
 
 **Como é atualizado hoje:** à mão. Sempre que `dados/amostra.csv` mudar (novo mês, dado real substituindo o de treino), rodar de novo o prompt do passo 3 da aula ("lê o fonte.md e o amostra.csv, gera o painel.html") para o painel se refazer a partir do dado novo — nunca editar o HTML célula por célula.
 
-**Ainda não é rotina.** Ligar isso a "todo dia às 8h" (faixa rápida da aula, degrau 2) depende do mesmo bloqueio da rotina do FakeERP logo acima — e hoje (14/09) a própria API do FakeERP caiu (502 em todos os endpoints, ver nota em `dados/fonte.md`), então mesmo rodando à mão não dava para reconfirmar o mês por completo agora.
+**Ainda não é rotina.** Ligar isso a "todo dia às 8h" (faixa rápida da aula, degrau 2) depende do mesmo bloqueio da rotina do FakeERP logo acima.
 
 | Data | Fonte usada | Números gerados | Observação |
 |---|---|---|---|
-| 14/09 | dados/amostra.csv (FakeERP, jan/2026) | 4 pedidos · receita paga R$ 1.430,00 · ticket médio pago R$ 715,00 | API do FakeERP fora do ar hoje (502); 3 dos 4 pedidos vêm de execuções reais já documentadas acima, 1 pedido (PAID, R$ 480,00) foi deduzido dos agregados já confirmados, sem inventar `orderId`/data/valor bruto |
+| 14/09 | dados/amostra.csv (FakeERP, jan/2026) | 4 pedidos · receita paga R$ 1.430,00 · ticket médio pago R$ 715,00 | Primeira tentativa: API fora do ar (502 em todos os endpoints, 8 tentativas em ~2 min). 3 dos 4 pedidos vieram de execuções já documentadas acima, e o 4º (PAID, R$ 480,00) foi deduzido dos agregados já confirmados, sem inventar `orderId`/data/valor bruto. ~20 min depois a API voltou (`HTTP 200`) e `GET /report/2026/1` reconfirmou o pedido de verdade: 1002, 12/01/2026, `value` 480,00, `discount` 0,00 — a dedução bateu exatamente. `dados/amostra.csv` e `painel.html` foram atualizados com o dado direto |
 
 ## Auditoria desta semana
 

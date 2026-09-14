@@ -141,7 +141,7 @@
       </thead>
       <tbody id="tabela-pedidos"></tbody>
     </table>
-    <p class="nota">Campos em branco não foram confirmados diretamente na fonte (ver nota em <code>dados/fonte.md</code>) — não foram inventados.</p>
+    <p class="nota">Os 4 pedidos vêm de uma chamada real ao FakeERP, reconfirmada hoje (ver nota em <code>dados/fonte.md</code>).</p>
   </section>
 
   <footer id="rodape"></footer>
@@ -157,10 +157,10 @@
   const PERIODO = "Janeiro de 2026";
 
   const pedidos = [
-    { orderId: 1001, data: "2026-01-05", value: 1000.00, discount: 50.00, total: 950.00, status: "PAID" },
-    { orderId: 1002, data: null,          value: null,    discount: null,  total: 480.00, status: "PAID" },
-    { orderId: 1003, data: "2026-01-20", value: null,    discount: null,  total: 225.00, status: "CANCELLED" },
-    { orderId: 1004, data: "2026-01-28", value: null,    discount: null,  total: 1200.00, status: "PENDING" }
+    { orderId: 1001, data: "2026-01-05", value: 1000.00, discount: 50.00,  total: 950.00,  status: "PAID" },
+    { orderId: 1002, data: "2026-01-12", value: 480.00,  discount: 0.00,   total: 480.00,  status: "PAID" },
+    { orderId: 1003, data: "2026-01-20", value: 250.00,  discount: 25.00,  total: 225.00,  status: "CANCELLED" },
+    { orderId: 1004, data: "2026-01-28", value: 1320.50, discount: 120.50, total: 1200.00, status: "PENDING" }
   ];
 
   function moeda(v) {
