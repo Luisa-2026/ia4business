@@ -1,50 +1,44 @@
 # Radar de tendências — Instagram @caffeinearmy
 
-Base: os comentários reais em [comentarios.md](comentarios.md), coletados em 17/09/2026 — 15 do post do lançamento (SuperCoffee Creme de Avelã, 16/09) e 15 de um post de comparação (SuperCoffee Protein+, 11/06). Li os 30 e classifiquei os 30 — nenhum foi descartado.
+## Origem
 
-## Métricas do post do lançamento (SuperCoffee Creme de Avelã)
+- **Perfil:** [@caffeinearmy](https://www.instagram.com/caffeinearmy/) (Caffeine Army | SUPERCOFFEE), 870 mil seguidores.
+- **Post analisado:** o lançamento do SuperCoffee Creme de Avelã, publicado 16/09/2026 — [caffeinearmy/p/DdWmcr8EbQQ](https://www.instagram.com/caffeinearmy/p/DdWmcr8EbQQ/).
+- **Comentários:** o post anuncia **53** comentários; **li e classifiquei 15** (~28% do total) — o carregamento travou nesse ponto (ver passo a passo em [comentarios.md](comentarios.md)). Os comentários brutos, sem nenhum @ de pessoa, estão em [comentarios.md](comentarios.md).
 
-| Métrica | Valor |
-|---|---|
-| Publicado | 16/09/2026 (há 20h no momento da coleta) |
-| Comentários totais (segundo o Instagram) | 53 |
-| Comentários lidos e classificados | 15 |
-| Compartilhamentos | 4 |
-| Curtidas | Não exibido numericamente pelo Instagram — não inventado |
+## Passo a passo da coleta
 
-## Classificação — post do lançamento (Creme de Avelã)
+1. Confirmei login no Instagram antes de abrir o post (sem login, zero comentário aparece).
+2. Abri o post pela grade do perfil, não pela URL direta, para o modal de comentários carregar.
+3. Roleta em passos curtos, lendo e guardando o texto da página a cada passo (o Instagram descarta da tela o que já saiu dela).
+4. Cliquei em "Carregar mais comentários"; travou em 15 de 53 e não avançou mais — segui com os 15, sem inventar o resto.
 
-| Categoria | Comentários | Qtde | % |
+## Régua de classificação
+
+Categorias fechadas, aplicadas sem inventar nenhuma nova de partida: **QUERO** (intenção de compra), **PREÇO** (pergunta ou reclama de valor), **DÚVIDA** (pergunta sobre o produto), **ELOGIO** (fala bem sem intenção clara), **CRÍTICA** (fala mal), **RUÍDO** (não diz nada sobre o produto), **NÃO CLASSIFICADO** (não coube em nenhuma das seis).
+
+## Tabela de relevância — post do lançamento (Creme de Avelã)
+
+| Categoria | Quantos | % | Exemplos |
 |---|---|---|---|
-| **Elogio / reação positiva** | henriqueciocchi, concurseira.giu, stefanenazare_, andreidanttas, gabiicontreiras, luiseduardoc__, gaabissc ×3, verena_avilanutri, anapaulacalabrich, crisdourado17 | 12 | 80% |
-| **Reclamação — entrega/logística** | biadantast, jackeline_rch | 2 | 13% |
-| **Promoção/cupom de terceiro** | itsbunnyworks | 1 | 7% |
-| **Total** | | **15** | **100%** |
+| **ELOGIO** | 11 | 73% | "👏👏👏👏👏"; "os melhores" |
+| **CRÍTICA** | 2 | 13% | "Fiz um pedido de umas simples amostras e não me entregaram..."; "...fiquei surpresa com a quantidade de reclamações sobre erros nos envios" |
+| **NÃO CLASSIFICADO** | 1 | 7% | "Use o cupom BUNNY para desconto no site da Caffeine Army 🌰🌰🤍🤍" |
+| **RUÍDO** | 1 | 7% | "[nome] lindaaa" |
+| QUERO | 0 | 0% | — |
+| PREÇO | 0 | 0% | — |
+| DÚVIDA | 0 | 0% | — |
+| **Total** | **15** | **100%** | |
 
-Não precisei de um balde NÃO CLASSIFICADO aqui — os 15 comentários lidos se encaixaram nas três categorias acima.
+**Sobre o NÃO CLASSIFICADO (7%, abaixo do limite de 20%):** o único comentário nessa gaveta é uma indicação de cupom de terceiro — o mesmo padrão de "atribuição de canal" que o teste da aula identificou em outro caso. Como é só 1 comentário em 15, não justifica ainda criar uma sétima categoria fixa aqui — mas é o tipo de sinal que, se aparecer de novo em mais posts, viraria categoria própria.
 
-## Classificação — post de comparação (Protein+, 11/06)
+## Leitura de negócio (3 linhas)
 
-| Categoria | Comentários | Qtde | % |
-|---|---|---|---|
-| **Elogio / reação positiva** | menzthais, tatferr, daniavalon, marimariano_72, soaresterninha_, roberta_rn09, dayennecamara | 7 | 47% |
-| **Reclamação — entrega/logística** | msuelyl, teacherborgescarol, monique_vidal, vi.da.vi_2020, thaysfernandez | 5 | 33% |
-| **Dúvida sobre o produto** | cris.marangoni | 1 | 7% |
-| **Interesse de compra** | loracarola | 1 | 7% |
-| **NÃO CLASSIFICADO** | juoriehnip (menciona uma influenciadora, não é elogio nem reclamação nem dúvida) | 1 | 6% |
-| **Total** | | **15** | **100%** |
+O post do lançamento é dominado por aprovação (73% ELOGIO), típico de conteúdo recém-publicado para uma base que já segue a marca. Mesmo assim, 13% já é crítica de entrega/pós-venda — e uma comentarista voluntária apontou publicamente "a quantidade de reclamações sobre erros nos envios" nos posts da marca, uma validação externa de que não é ruído isolado. Isso é atrito operacional aparecendo de graça nos comentários de um post que fala de sabor, não de logística.
 
-## A tendência que se repete nos dois posts
+## Referência cruzada
 
-**Reclamação de entrega/logística aparece nos dois posts, com três meses de distância** — 13% no lançamento de ontem, 33% no post de junho. É pouco provável que seja coincidência: no post do lançamento, uma das próprias seguidoras (**jackeline_rch**) escreveu que "nunca tinha parado para ler os comentários dos posts de vocês, mas fiquei surpresa com a quantidade de reclamações sobre erros nos envios" — uma confirmação de fora, não só a minha leitura dos dados.
-
-O padrão dentro dessa categoria é sempre o mesmo: pedido pago, sem resposta por e-mail/WhatsApp, sem previsão de chegada. Em nenhum dos dois posts a reclamação é sobre o produto em si — pelo contrário, quem reclama da entrega às vezes elogia o produto na mesma frase (ver teacherborgescarol, no post de comparação).
-
-Os elogios dominam o post do lançamento (80% vs. 47% no post de junho) — esperado, porque é um post de lançamento recém-publicado, com pico de reação positiva de quem já segue a marca; a reclamação tende a aparecer mais conforme o tempo passa e mais pedidos daquele lote são de fato entregues (ou não).
-
-## Por que isso importa (lição para o meu projeto)
-
-O padrão aqui — insatisfação concentrada no operacional/pós-venda, não no produto em si — é o mesmo tipo de problema descrito em [problema.md](../problema.md) para a construtora: o produto (lote, apartamento) não é o gargalo, é a execução e o acompanhamento dos processos internos que geram atrito. O método usado neste radar (juntar comentários reais, classificar sem inventar, fechar a soma em 100% com um balde de NÃO CLASSIFICADO quando necessário) é o mesmo raciocínio de rigor que vale para qualquer dado da empresa — inclusive o FakeERP em [dados/fonte.md](../dados/fonte.md).
+Um segundo post, de três meses antes (SuperCoffee Protein+, 11/06 — dados em [comentarios.md](comentarios.md)), mostra o mesmo tipo de reclamação de entrega em proporção maior (33% dos 15 lidos), sugerindo que é um padrão recorrente da marca, não um evento isolado do lançamento de ontem.
 
 ## Se eu fosse recomendar algo ao Caffeine Army
 

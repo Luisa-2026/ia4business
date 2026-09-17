@@ -34,13 +34,13 @@ Se o número de duplicidades cair e a necessidade de conferência do proprietár
 
 ## Métrica
 
-A métrica que mais dói: **horas por semana que o proprietário gasta conferindo e validando manualmente tarefas que a equipe já deveria executar sozinha** (pagamento de boletos, prazos de cartório, contratos).
+| Métrica | Alvo | Como confiro |
+|---|---|---|
+| Horas por semana que o proprietário gasta conferindo e validando manualmente boletos, prazos de cartório e contratos | De ~12h/semana (estimativa atual dele, sem medição formal ainda) para 8h/semana — queda de ~30% — até 31/12/2026 | Relatório de opinião dele: uma vez por mês eu pergunto quantas horas ele *sente* que gastou conferindo naquele mês, e registro a resposta para comparar mês a mês |
 
 Por que essa e não outra: não é uma métrica de vendas — esse problema é interno e não afeta diretamente a receita nem o cliente externo (ver [cliente.md](contexto/cliente.md)), então não faz sentido medir conversa ou cadastro aqui. Também não é a métrica de duplicidade de pagamentos isoladamente — essa já está sendo acompanhada no primeiro experimento (seção acima). É a métrica que, se cair, prova que a equipe ganhou autonomia de verdade e que o proprietário recuperou tempo para decisões estratégicas — exatamente a dor descrita em "Quem sofre" e "Como é hoje".
 
-Como medir: perguntar ao proprietário, semanalmente, quantas horas ele dedicou a conferir/validar boletos, prazos e contratos naquela semana. **Ainda não existe linha de base numérica** — precisa ser levantada nas próximas semanas, antes de qualquer comparação "antes x depois" da automação.
-
-Meta: reduzir entre 30% e 40% essas horas no primeiro ano de uso da solução (mesma meta já citada em "O que mudaria" acima).
+Sobre a linha de base: os ~12h/semana vêm de uma estimativa dele mesmo (10 a 15h), não de uma medição cronometrada — é um relatório de opinião, não um número de planilha, e isso é assumido de propósito: o "como confiro" mede a mesma régua subjetiva antes e depois, então a queda percentual continua válida mesmo sem baseline exata.
 
 ## Cargos impactados
 
