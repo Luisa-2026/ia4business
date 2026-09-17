@@ -32,6 +32,16 @@ O que será medido nesse período: (1) quantos pagamentos duplicados são evitad
 
 Se o número de duplicidades cair e a necessidade de conferência do proprietário nessa frente específica diminuir, isso valida que a mesma lógica — checagem automática antes da execução — pode ser estendida com IA para as outras duas frentes (prazos de cartório e checagem de contratos).
 
+## Métrica
+
+A métrica que mais dói: **horas por semana que o proprietário gasta conferindo e validando manualmente tarefas que a equipe já deveria executar sozinha** (pagamento de boletos, prazos de cartório, contratos).
+
+Por que essa e não outra: não é uma métrica de vendas — esse problema é interno e não afeta diretamente a receita nem o cliente externo (ver [cliente.md](contexto/cliente.md)), então não faz sentido medir conversa ou cadastro aqui. Também não é a métrica de duplicidade de pagamentos isoladamente — essa já está sendo acompanhada no primeiro experimento (seção acima). É a métrica que, se cair, prova que a equipe ganhou autonomia de verdade e que o proprietário recuperou tempo para decisões estratégicas — exatamente a dor descrita em "Quem sofre" e "Como é hoje".
+
+Como medir: perguntar ao proprietário, semanalmente, quantas horas ele dedicou a conferir/validar boletos, prazos e contratos naquela semana. **Ainda não existe linha de base numérica** — precisa ser levantada nas próximas semanas, antes de qualquer comparação "antes x depois" da automação.
+
+Meta: reduzir entre 30% e 40% essas horas no primeiro ano de uso da solução (mesma meta já citada em "O que mudaria" acima).
+
 ## Cargos impactados
 
 A solução afetaria diretamente quatro papéis dentro da empresa:
