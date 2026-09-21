@@ -59,3 +59,7 @@ Como roda: à mão no Claude Code, testado contra janeiro/2026 (dispara) e julho
 ## Auditoria desta semana
 
 Primeira semana com automação de verdade — nada para **matar** ainda. Ponto de atenção real: o conector Gmail, ligado sem uso, e a rotina FakeERP, ligada mas bloqueada por rede. Sem isso resolvido, "todo dia às 8h" ainda não devolve tempo nenhum — é dívida, não ativo, até o bloqueio de rede ser corrigido.
+
+## Testes de falha (21/09)
+
+Rodei de verdade os 3 cenários de falha da Aula 14 contra `dados/amostra.csv` (renomeei o arquivo, sujei 3 linhas, restaurei tudo depois) — resultado completo em [testes.md](testes.md). Achado principal: sem uma regra escrita, nada impedia a IA de reaproveitar um número já visto antes na conversa como se fosse uma leitura nova da fonte. Corrigi isso acrescentando a seção "Regra de segurança da fonte" em `regras.md` (21/09, 09h12) — "FONTE INDISPONÍVEL" obrigatório quando a fonte falha, proibido reaproveitar número antigo, e obrigação de informar linhas lidas/ignoradas e por quê. Repeti o teste de fonte fora do ar com a regra nova e o comportamento mudou de "sem instrução nenhuma" para recusa explícita.

@@ -4,6 +4,16 @@ Regras que a rotina usa para decidir quando falar e quando ficar calada. Fonte d
 
 Em nenhuma regra a ação é executar algo sozinha: o máximo que a automação faz é escrever o alerta. Quem decide e quem age continua sendo uma pessoa — [problema.md](problema.md) e o `CLAUDE.md` do projeto exigem revisão humana como etapa final.
 
+## Regra de segurança da fonte (vale para todas as regras abaixo, e para o `painel.html`)
+
+Toda regra deste arquivo depende de conseguir ler uma fonte de verdade primeiro — o FakeERP (`GET /report/{year}/{month}`) para as regras 1 a 6, ou `dados/amostra.csv` para os 3 números do `painel.html`. Isso só é confiável se a leitura da fonte for tratada com a mesma seriedade da regra em si:
+
+- **Se a fonte não existir, vier vazia, ou a chamada falhar** (arquivo não encontrado, API fora do ar, resposta sem pedidos): escrever **"FONTE INDISPONÍVEL"** e parar. Nenhuma regra é avaliada nesse ciclo. Isso vale mesmo que eu (Claude) já tenha visto os números de uma execução anterior na mesma conversa — números antigos não podem ser reaproveitados como se fossem uma leitura nova.
+- **Nunca inventar número.** Se um valor não veio da fonte nesta execução, ele não aparece no relatório — nem estimado, nem "deduzido por parecer razoável". A única exceção documentada até hoje (o pedido 1002 em `dados/fonte.md`, deduzido por diferença de agregados) foi marcada explicitamente como dedução e depois reconfirmada contra a API real antes de virar dado definitivo — isso não é a regra, é o caso excepcional que prova por que a regra existe.
+- **Sempre informar quantos pedidos/linhas foram lidos e quantos foram ignorados, e por quê** (linha vazia, valor negativo onde não deveria existir, data em formato errado, `orderId` duplicado, etc.) — tanto para o `GET /report/{year}/{month}` do FakeERP quanto para `dados/amostra.csv`.
+
+Isso é o que decide se a rotina para ou continua. As colunas "Se não disparar" e "Se uma fonte estiver fora do ar" de cada regra abaixo continuam existindo para o registro em `automacoes.md`, mas só depois que a fonte já foi confirmada disponível — se a fonte falhou, a resposta é sempre "FONTE INDISPONÍVEL", nunca "0 pedidos encontrados" (que é uma leitura válida da fonte, não uma falha dela).
+
 ## Regra 1 — Venda cancelada no mês
 
 | Campo | Valor |
