@@ -25,19 +25,23 @@ Projeto da disciplina AI for Business (Link School of Business), aplicado à con
 
 - **[testes.md](testes.md)** — os 3 cenários de falha testados de verdade contra `dados/amostra.csv`: fonte fora do ar, dado sujo (linha vazia, valor negativo, data em formato errado) e uma condição que nunca dispara (Regra 6), com o que foi observado e consertado em cada caso.
 
-### 4. Radar de mercado (exercício da Aula 13)
+### 4. Portão de escala
+
+- **[escala.md](escala.md)** — as 5 perguntas do portão da Aula 15 (roda sem mim, avisa quando falha, alguém lê, mede, cliente ouvido), cada uma com evidência em arquivo, e a decisão: não abre ainda, e qual item vira "sim" primeiro, com prazo.
+
+### 5. Radar de mercado (exercício da Aula 13)
 
 - **[radar/radar-tendencias.md](radar/radar-tendencias.md)** — análise dos comentários de um post do Instagram (@caffeinearmy), classificados por categoria, com leitura de negócio sobre reclamações de entrega. Não é sobre a construtora — é um exercício de outra aula, mantido no mesmo repositório.
 - **[radar/comentarios.md](radar/comentarios.md)** — os comentários brutos coletados, base do arquivo acima.
 
-### 5. Histórico
+### 6. Histórico
 
 - **[alertas/2026-09-10.md](alertas/2026-09-10.md)** — primeira execução manual das regras 1 a 3 (antes de existirem as regras 4, 5 e 6), com o resultado real de janeiro/2026 vs. julho/2026.
 - **[prompts.md](prompts.md)** — biblioteca de prompts, incluindo o histórico de como um pedido foi refinado em 3 versões (V1 → V2 → V3) até chegar num briefing que funciona de verdade.
 - **[relatorio-alternativas-solucao.docx](relatorio-alternativas-solucao.docx)** — documento Word com as alternativas de solução avaliadas para o problema, critérios de avaliação e recomendação, preparado em 27/08/2026.
 - **Resumo_Contexto_Negocio.docx** — resumo do contexto do negócio preparado para revisão do meu pai. **Não aparece no GitHub**: está listado no `.gitignore`, então fica só na minha máquina.
 
-### 6. Infraestrutura do projeto
+### 7. Infraestrutura do projeto
 
 - **[.gitignore](.gitignore)** — ignora arquivos de sistema (`.DS_Store`) e o `Resumo_Contexto_Negocio.docx` (documento de revisão pessoal, não faz parte do entregável).
 - **[.claude/skills/](.claude/skills/)** — skills do Claude Code usadas neste projeto: `fecha-conversa`, `resumo-semanal` e `revisa-repo` (escritas para este projeto, uma por aula) e `doc-coauthoring`/`docx` (skills padrão da ferramenta, usadas para gerar os `.docx` acima — não foram escritas por mim).
