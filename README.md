@@ -34,14 +34,18 @@ Projeto da disciplina AI for Business (Link School of Business), aplicado à con
 - **[radar/radar-tendencias.md](radar/radar-tendencias.md)** — análise dos comentários de um post do Instagram (@caffeinearmy), classificados por categoria, com leitura de negócio sobre reclamações de entrega. Não é sobre a construtora — é um exercício de outra aula, mantido no mesmo repositório.
 - **[radar/comentarios.md](radar/comentarios.md)** — os comentários brutos coletados, base do arquivo acima.
 
-### 6. Histórico
+### 6. Agente de vendas (Aula 18)
+
+- **[agente/prompt.md](agente/prompt.md)** — prompt de configuração da Lia, agente de vendas de uma empresa fictícia de cursos online (Tech Lab), com identidade, tools, o que pode e não pode fazer e quando passa para um humano. O History do arquivo mostra a evolução: a versão 1 que funcionou no simulador e a alteração que obriga o agente a coletar nível, objetivo e tempo disponível antes de recomendar um curso.
+
+### 7. Histórico
 
 - **[alertas/2026-09-10.md](alertas/2026-09-10.md)** — primeira execução manual das regras 1 a 3 (antes de existirem as regras 4, 5 e 6), com o resultado real de janeiro/2026 vs. julho/2026.
 - **[prompts.md](prompts.md)** — biblioteca de prompts, incluindo o histórico de como um pedido foi refinado em 3 versões (V1 → V2 → V3) até chegar num briefing que funciona de verdade.
 - **[relatorio-alternativas-solucao.docx](relatorio-alternativas-solucao.docx)** — documento Word com as alternativas de solução avaliadas para o problema, critérios de avaliação e recomendação, preparado em 27/08/2026.
 - **Resumo_Contexto_Negocio.docx** — resumo do contexto do negócio preparado para revisão do meu pai. **Não aparece no GitHub**: está listado no `.gitignore`, então fica só na minha máquina.
 
-### 7. Infraestrutura do projeto
+### 8. Infraestrutura do projeto
 
 - **[.gitignore](.gitignore)** — ignora arquivos de sistema (`.DS_Store`) e o `Resumo_Contexto_Negocio.docx` (documento de revisão pessoal, não faz parte do entregável).
 - **[.claude/skills/](.claude/skills/)** — skills do Claude Code usadas neste projeto: `fecha-conversa`, `resumo-semanal` e `revisa-repo` (escritas para este projeto, uma por aula) e `doc-coauthoring`/`docx` (skills padrão da ferramenta, usadas para gerar os `.docx` acima — não foram escritas por mim).
